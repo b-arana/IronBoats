@@ -8,5 +8,8 @@
 
 <div *ngIf="sessionService.user">
   <h2>BIENVENIDO SR PATATA</h2>
+  <pre>{{sessionService.user | json}}</pre>
+  <img width=100 [src]="{{BASE_URL}}/uploads/{{sessionService.user.profilePic}}">
+  <app-upload-profile></app-upload-profile>
   <button (click)="sessionService.logout().subscribe()"> Logout </button>
 </div>
