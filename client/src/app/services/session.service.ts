@@ -1,9 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
-
 
 const BASEURL = "http://localhost:3000";
 
@@ -11,6 +10,7 @@ const BASEURL = "http://localhost:3000";
 export class SessionService {
 
   user:any;
+  userEvent: EventEmitter<any> = new EventEmitter();
   options: any = { withCredentials:true };
 
   constructor(private http: Http) {
@@ -23,6 +23,7 @@ export class SessionService {
 
   handleUser(user?:object){
     this.user = user;
+    this.userEvent.emit(this.user);
     return this.user;
   }
 
@@ -42,7 +43,6 @@ export class SessionService {
 
   logout() {
     return this.http.get(`${BASEURL}/api/auth/logout`,this.options)
-      .map(res => res.json())
       .map(() => this.handleUser())
       .catch(this.handleError);
   }
