@@ -60,6 +60,7 @@ app.use(
 );
 require("./passport")(app);
 
+
 // Express View engine setup
 
 app.use(
@@ -83,6 +84,11 @@ app.use("/", index);
 
 const authRouter = require("./routes/auth");
 app.use("/api/auth", authRouter);
+
+
+app.use(function(req, res) {
+  res.sendfile(__dirname + '/public/index.html');
+});
 
 
 module.exports = app;
