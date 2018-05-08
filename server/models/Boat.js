@@ -19,8 +19,6 @@ const boatSchema = new Schema({
         type: String,
         default: ''
     },
-    reservations: Array
-
 }, {
     timestamps: {
         createdAt: 'created_at',

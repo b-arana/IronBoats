@@ -7,12 +7,12 @@ const reservationSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    origin: String,
-    destination: String,
-    _place: {
+    _boat: {
         type: Schema.Types.ObjectId,
         ref: 'Boat'
     },
+    origin: String,
+    destination: String,
     price: Number
 
 });

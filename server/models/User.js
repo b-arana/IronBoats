@@ -7,12 +7,12 @@ const userSchema = new Schema({
   email: String,
   role: {
     type: String,
-    enum: ['Shipmaster', 'Client'],
+    enum: ['Shipmaster', 'Client', 'Admin'],
     default: 'Client'
   },
   imgUser: String,
-  valoration: Number
-
+  valoration: Number,
+  
 }, {
   timestamps: {
     createdAt: 'created_at',

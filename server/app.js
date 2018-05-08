@@ -11,11 +11,12 @@ const path = require("path");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const cors = require('cors');
+const db = process.env.DB_URL;
 
 
 mongoose.Promise = Promise;
 mongoose
-  .connect("mongodb://localhost/server", { useMongoClient: true })
+  .connect(db, { useMongoClient: true })
   .then(() => {
     console.log("Connected to Mongo!");
   })
@@ -74,7 +75,6 @@ app.use(
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
-app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
