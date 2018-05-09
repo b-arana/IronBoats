@@ -6,6 +6,10 @@ const boatSchema = new Schema({
     class: String,
     year: Number,
     capacity: Number,
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
     size: {
         lenght: Number,  // Eslora
         width: Number,   // Manga
