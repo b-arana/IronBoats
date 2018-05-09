@@ -14,6 +14,8 @@ const cors = require('cors');
 const db = process.env.DB_URL;
 
 
+
+
 mongoose.Promise = Promise;
 mongoose
   .connect(db, { useMongoClient: true })
@@ -76,8 +78,9 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
 
+
 // default value for title local
-app.locals.title = "Express - Generated with IronGenerator";
+app.locals.title = "IronBoat";
 
 const index = require("./routes/index");
 app.use("/", index);
@@ -85,12 +88,18 @@ app.use("/", index);
 const authRouter = require("./routes/auth");
 app.use("/api/auth", authRouter);
 
+const userRouter = require('./routes/user');
+const boatRouter = require('./routes/boat');
+const reservationRouter = require('./routes/reservation');
 
+app.use("/api/user", userRouter);
+app.use("/api/boat", boatRouter);
+app.use("/api/reservation", reservationRouter);
 
-
-app.use(function(req, res) {
+app.use(function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
+
 
 
 module.exports = app;

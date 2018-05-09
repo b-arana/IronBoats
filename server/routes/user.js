@@ -1,13 +1,23 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
+const _ = require("lodash");
+const fields = Object.keys(_.omit(User.schema.paths, ["__v", "_id"]));
+const islogginIn = require('../middlewares/isAuthenticated');
 
-// Create User
+// Create User Ok
 
-router.post("/new", (req, res, next)=>{
-    const {usarname, password, email,role, imgUser,valoration} = req.body;
+router.post("/new", (req, res, next) => {
+    const {
+        username,
+        password,
+        email,
+        role,
+        imgUser,
+        valoration
+    } = req.body;
     const user = new User({
-        usarname,
+        username,
         password,
         email,
         role,
@@ -15,42 +25,52 @@ router.post("/new", (req, res, next)=>{
         valoration
     });
     user.save()
-        .then((userSaved)=>res.status(200).json(userSaved))
-        .catch((err)=> res.status(500).json(err));
+        .then((userSaved) => res.status(200).json(userSaved))
+        .catch((err) => res.status(500).json(err));
 });
 
-// Show User
+// Show User OK
 
-router.get("/show", (req, res, next)=>{
+router.get("/show", (req, res, next) => {
     User.find()
-        .then((user)=> res.status(200).json(user))
-        .catch((err)=> res.status(500).json(err));
+        .then((user) => res.status(200).json(user))
+        .catch((err) => res.status(500).json(err));
+});
+
+router.get("/:id/show", (req, res, next) => {
+    User.findById(req.params.id)
+        .then((user) => res.status(200).json(user))
+        .catch((err) => res.status(500).json(err));
 });
 
 // Update User
 
-router.get("/edit/:id", ( req, res, next)=>{
-    const { update} = req.body;
 
-    User.findByIdAndUpdate(req.params.id, {update})
-        .then(userEdit=> res.status(200).json(userEdit))
-        .catch(err=> res.status(500).json(err));
+router.put("/edit", islogginIn, (req, res, next) => {
+
+    const updates = _.pick(req.body, fields);
+
+    User.findByIdAndUpdate(req.user._id, updates, {
+            new: true
+        })
+        .then(userEdit => res.status(200).json(userEdit))
+        .catch(err => res.status(500).json(err));
 });
 
+// Delete User OK 
 
-// Delete User
-
-router.get("/delete/:id", (req, res, next)=>{
-    User.findById(req.user._id)
-        .then(user=>{
-             return res.status(200).json(user);
+router.get("/delete", islogginIn, (req, res, next) => {
+    User.findByIdAndRemove(req.user.id)
+        .then(user => {
+            return res.status(200).json(user);
         })
-        .catch(err=>{
+        .catch(err => {
             return res.status(500).json(err);
         });
 });
 
 
-// Show dueño del barco????
 
 
+
+module.exports = router;

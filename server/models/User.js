@@ -11,7 +11,7 @@ const userSchema = new Schema({
     default: 'Client'
   },
   imgUser: String,
-  valoration: Number,
+  valoration: String,
   
 }, {
   timestamps: {

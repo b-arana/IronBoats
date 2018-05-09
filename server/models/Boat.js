@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const boatSchema = new Schema({
     name: String,
-    class: String,
+    type: String,
     year: Number,
     capacity: Number,
     owner: {

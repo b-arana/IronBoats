@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 const User = require('./User');
 
 const reservationSchema = new Schema({
-    _author: {
+    author: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    _boat: {
+    boat: {
         type: Schema.Types.ObjectId,
         ref: 'Boat'
     },
