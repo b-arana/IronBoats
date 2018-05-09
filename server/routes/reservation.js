@@ -8,21 +8,25 @@ const islogginIn = require('../middlewares/isAuthenticated');
 
 // Creating a reserve
 
-router.post("/new", islogginIn,(req, res, next) => {
-    const author = req.user._id;
+router.post("/:id", islogginIn, (req, res, next) => {
+    const author = req.params.user;
+    const boat = req.params._id;
+    console.log(author);
+    console.log(boat);
     const {
         origin,
         destination,
         price
     } = req.body;
 
-    const reservation = new Reservation({
+    const newReservation = new Reservation({
         author,
+        boat,
         origin,
         destination,
         price
     });
-    reservation.save()
+    newReservation.save()
         .then((savedReservation) => res.status(200).json(savedReservation))
         .catch((e) => res.status(500).json(e));
 });
@@ -30,30 +34,25 @@ router.post("/new", islogginIn,(req, res, next) => {
 
 //Showing reservas
 
-router.get("/show",islogginIn, (req, res, next) => {
-    Reservation.find()
+router.get("/show", islogginIn, (req, res, next) => {
+    Reservation.find({
+            user: req.user._id
+        })
+        .populate("user")
+        .populate("boat")
         .then((boatsFound) => res.status(200).json(boatsFound))
         .catch((e) => res.status(500).json(e));
 
 });
 
-router.get("/showReservation/:id", (req, res, next) => {
-    
-    Reservation.findById(req.params.id)
-        .then((boatsFound) => res.status(200).json(boatsFound))
-        .catch((e) => res.status(500).json(e));
 
-});
+//Delete a reserve
 
-
-
-//CRUD => DELETE
-
-router.get('/deleteReservation/:id', function (req, res, next) {
+router.get('/delete/:id', islogginIn, (req, res, next) => {
+    const reserva = req.params.id;
+    console.log(reserva);
     Reservation.findByIdAndRemove(req.params.id)
-        .then(() => res.status(200).json({
-            message: 'removed'
-        }))
+        .then( reservationDelete => res.status(200).json(reservationDelete))
         .catch(e => res.status(500).json(e));
 });
 

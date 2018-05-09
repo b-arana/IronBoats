@@ -69,8 +69,4 @@ router.get("/delete", islogginIn, (req, res, next) => {
         });
 });
 
-
-
-
-
 module.exports = router;
