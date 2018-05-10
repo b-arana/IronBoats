@@ -34,17 +34,15 @@ router.post("/:boat", islogginIn, (req, res, next) => {
 
 //Showing reservas
 
-router.get("/show", islogginIn, (req, res, next) => {
+router.get("/show/:id_reserva", islogginIn, (req, res, next) => {
     const user = req.user.id;
     console.log(user);
-    Reservation.find({
-            user: req.user.id
-        })
-        .populate(user)
-        .populate(boat)
-        .then((boatsFound) => res.status(200).json(boatsFound))
+    const {id_reserva} = req.params;
+    Reservation.findById(id_reserva)
+        .populate('author')      
+        .populate('boat')
+        .then( reserva => res.status(200).json(reserva))
         .catch((e) => res.status(500).json(e));
-
 });
 
 
