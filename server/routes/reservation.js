@@ -8,9 +8,9 @@ const islogginIn = require('../middlewares/isAuthenticated');
 
 // Creating a reserve
 
-router.post("/:id", islogginIn, (req, res, next) => {
-    const author = req.params.user;
-    const boat = req.params._id;
+router.post("/:boat", islogginIn, (req, res, next) => {
+    const author = req.user.id;
+    const boat = req.params.boat;
     console.log(author);
     console.log(boat);
     const {
@@ -35,11 +35,13 @@ router.post("/:id", islogginIn, (req, res, next) => {
 //Showing reservas
 
 router.get("/show", islogginIn, (req, res, next) => {
+    const user = req.user.id;
+    console.log(user);
     Reservation.find({
-            user: req.user._id
+            user: req.user.id
         })
-        .populate("user")
-        .populate("boat")
+        .populate(user)
+        .populate(boat)
         .then((boatsFound) => res.status(200).json(boatsFound))
         .catch((e) => res.status(500).json(e));
 
