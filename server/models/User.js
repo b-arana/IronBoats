@@ -5,10 +5,9 @@ const userSchema = new Schema({
   username: String,
   password: String,
   email: String,
-  role: {
-    type: String,
-    enum: ['Shipmaster', 'Client', 'Admin'],
-    default: 'Client'
+  isOwner: {
+    type: Boolean,
+    default: 'false'
   },
   imgUser: String,
   valoration: String,

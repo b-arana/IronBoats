@@ -4,11 +4,12 @@ const Boat = require("../models/Boat");
 const _ = require("lodash");
 const fields = Object.keys(_.omit(Boat.schema.paths, ["__v", "_id"]));
 const islogginIn = require('../middlewares/isAuthenticated');
+const uploadCloud = require('../config/cloudinary');
 
 
 // Create a boat
 
-router.post('/new', islogginIn, (req, res, next) => {
+router.post('/new', islogginIn,(req, res, next) => {
     const owner = req.user._id;
     const {
         name,
@@ -17,12 +18,10 @@ router.post('/new', islogginIn, (req, res, next) => {
         capacity,
         size,
         place,
-        imgBoat
     } = req.body;
+    
 
-    console.log(req.body);
-
-    const boat = new Boat({
+    const newBoat = new Boat({
         name,
         owner,
         type,
@@ -30,13 +29,14 @@ router.post('/new', islogginIn, (req, res, next) => {
         capacity,
         size,
         place,
-        imgBoat
+       
     });
 
-    console.log(boat);
 
-    boat.save()
-        .then((savedBoat) => res.status(200).json(savedBoat))
+    newBoat.save()
+        .then((boat) => {
+            res.status(200).json(boat);
+        })
         .catch((e) => res.status(500).json(e));
 
 });
