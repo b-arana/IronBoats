@@ -1,1 +1,16 @@
-<app-register-boat></app-register-boat>
+
+<div>Hola Owner</div>
+
+<div *ngIf="sessionService.user">
+
+
+<h3>Hola {{sessionService.user.username}}</h3>
+
+<p>List the boats of the owner</p>
+
+
+
+
+
+
+</div>

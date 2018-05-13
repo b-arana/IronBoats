@@ -19,12 +19,15 @@
     <label for="capacity">Capacidad máx.personas</label>
     <input type="number" class="form-control-sm" id="capacity" min="4" max="16" name="capacity" [(ngModel)]="capacity">
   </div>
+  <div class="form-group">
+    <label for="description">Descripción</label>
+    <textarea name="description" id="description" cols="30" rows="10" [(ngModel)]="description"></textarea>
+  </div>
+
   <fieldset>
     <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
   </fieldset>
-  <button (click)="getNewBoat()"> newboat</button>
+  <button (click)="getNewBoat()">newboat</button>
 </form>
 
-<a [routerLink]="['user']"> Volver</a>
-
-
+<button (click)="cancel()">Volver</button>

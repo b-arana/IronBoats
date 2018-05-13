@@ -18,6 +18,7 @@ router.post('/new',[islogginIn, upload.single("file")], (req, res, next) => {
         capacity,
         size,
         place,
+        coordinates,
         description
     } = req.body;
     
@@ -29,6 +30,7 @@ router.post('/new',[islogginIn, upload.single("file")], (req, res, next) => {
         capacity,
         size,
         place,
+        coordinates,
         imgBoat,
         description
     });
@@ -40,14 +42,22 @@ router.post('/new',[islogginIn, upload.single("file")], (req, res, next) => {
 
 });
 
-
 // Showing boats
 router.get("/show", (req, res, next) => {
     Boat.find()
-        .then((boatsFound) => res.status(200).json(boatsFound))
+        .then((boat) => res.status(200).json(boat))
         .catch((e) => res.status(500).json(e));
 
 });
+
+
+// Show detail boat
+router.get("/show/:id", (req, res, next) =>{
+    Boat.findById(req.params.id)
+        .then((boatId) => res.status(200).json(boatId))
+        .catch((e) => res.status(500).json(e));
+});
+
 
 // Update boats - Solo lo puede editar el dueño
 

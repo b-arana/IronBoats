@@ -19,6 +19,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { ProfileOwnerComponent } from './componentes/profileOwner/profileOwner.component';
 import { ProfileUserComponent } from './componentes/profileUser/profileUser.component';
 import { FileSelectDirective } from 'ng2-file-upload';
+import { DetailBoatComponent } from './componentes/detailBoat/detailBoat.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { FileSelectDirective } from 'ng2-file-upload';
     LoginComponent,
     ProfileOwnerComponent,
     ProfileUserComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    DetailBoatComponent
    
     
     

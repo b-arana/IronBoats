@@ -9,6 +9,7 @@ import { LoginFormComponent } from './componentes/login-form/login-form.componen
 import { Profile } from 'selenium-webdriver/firefox';
 import { ProfileOwnerComponent } from './componentes/profileOwner/profileOwner.component';
 import { ProfileUserComponent } from './componentes/profileUser/profileUser.component';
+import { DetailBoatComponent } from './componentes/detailBoat/detailBoat.component';
 
 
 export const routes: Routes = [
@@ -19,8 +20,9 @@ export const routes: Routes = [
   {path: 'reservation', component: ReservationComponent},
   {path: 'boats', component: BoatsComponent},
   {path: 'user/register', component: RegisterBoatComponent},
-  {path: 'profile', component: ProfileOwnerComponent},
-  {path: 'user', component: ProfileUserComponent}
+  {path: 'user', component: ProfileUserComponent},
+  {path: 'profile/owner', component: ProfileOwnerComponent},
+  {path: 'home/boat/:id', component: DetailBoatComponent}
  
 ];
 

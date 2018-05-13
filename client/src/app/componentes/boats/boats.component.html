@@ -1,13 +1,21 @@
-<h1>List of boats</h1>
 
-
-<ul>
-  <li *ngFor='let boat of boats'>
-    <img src="{{boat.imgBoat}}" alt="image" width="150">
-    <div>{{boat.name}}</div>
-    <div>{{boat.type}}</div>
-    <div>{{boat.description}}</div>
-
-  </li>
-</ul>
- 
+<div class="container">
+  <div class="row">
+    <div class="offset-lg-4 col-lg-4 col-sm-5 col-12" *ngFor='let boat of boats'>
+      <div class="card">
+        <img src="{{boat.imgBoat}}" alt="Card image cap" width="100%" height="200px">
+        <label class="text-light">{{boat.type}}</label>
+        <label class="text-light date text-center">07 MAR</label>
+        <label class="text-light price text-center">price</label>
+        <div class="card-block">
+          <h4>Owner</h4>
+          <span class="text-danger">Breve description</span>
+          <p>{{boat.description}}</p>
+        <button type="button" class="btn btn-warning text-light">
+          <a class="link-color" [routerLink]="['/home/boat', boat._id]">Ver más</a>
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

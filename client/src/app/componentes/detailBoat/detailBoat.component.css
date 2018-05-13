@@ -21,14 +21,18 @@ body {
   width: 50px;
   right: 20px;
 }
-.card .price{
-  top:0px;
+
+.card .price {
+  top: 0px;
   border-radius: 25px;
-  
 }
 
 .link-color {
   color: #fff;
   text-decoration-line: none;
+}
 
+span{
+    color:black;
+    font-weight: bolder;
 }

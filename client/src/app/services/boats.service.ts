@@ -11,13 +11,26 @@ export class BoatsService {
 	constructor(private http: Http) {}
 
 	showBoats() {
+		// tslint:disable-next-line:indent
 		return this.http.get(`${environment.BASEURL}/api/boat/show`).map((res) => res.json());
 	}
 
 	addBoats(info) {
 		console.log(info);
+		// tslint:disable-next-line:indent
 		return this.http.post(`${environment.BASEURL}/api/boat/new`, info, { withCredentials: true }).map((res) => {
 			return res.json();
 		});
 	}
+	getDetailsBoat(id) {
+		return this.http.get(`${environment.BASEURL}/api/boat/show/${id}`, id).map((res) => {
+			return res.json();
+		});
+	}
+
+	// showDetailsBoat(id) {
+	// 	return this.http.put(`${environment.BASEURL}/api/boat/${id}/edit`, id, { withCredentials: true }).map((res) => {
+	// 		return res.json();
+	// 	});
+	// }
 }

@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div>
+      <h4>Hola </h4>
+    </div>
+    <div class="offset-lg-4 col-8" *ngIf="boat">
+      <div class="card">
+        <h5>CARACTERISTICAS DEL BARCO</h5>
+        <img src="{{boat.imgBoat}}" alt="PHOTO" width="400px" height="200px">
+        <div class="card-block">
+          <h4>Owner</h4>
+          <div id="description">
+            <h5>DESCRIPCIÓN</h5>
+            <p>{{boat.description}}</p>
+          </div>
+          <hr>
+          <div id="detalles">
+            <h5>DETALLES</h5>
+            <div>
+              <span>Capacidad:</span>
+              <i>{{boat.capacity}} personas máx.</i>
+            </div>
+            <div>
+              <span>Año: </span>
+              <i>{{boat.year}}</i>
+            </div>
+            <div>
+              <span>Medidas: </span>
+              <i>Eslora: {{boat.size.lenght}} m</i>
+              <i>Manga: {{boat.size.width}} m</i>
+              <i>Calado: {{boat.size.openwork}} m</i>
+            </div>
+            <div>
+              <span>Ubicación: {{boat.place}}</span>
+            </div>
+
+            <p>INTRODUCIR GEOLOCALIZACION</p>
+
+
+          </div>
+
+       
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button (click)="cancel()">Volver</button>
+

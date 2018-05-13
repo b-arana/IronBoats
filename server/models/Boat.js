@@ -15,7 +15,8 @@ const boatSchema = new Schema({
         width: Number,   // Manga
         openwork: Number // Calado
     },
-    place: {
+    place: String,
+    coordinates: {
         latitude: Number,
         longitude: Number
     },
