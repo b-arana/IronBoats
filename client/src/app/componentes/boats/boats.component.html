@@ -1,0 +1,13 @@
+<h1>List of boats</h1>
+
+
+<ul>
+  <li *ngFor='let boat of boats'>
+    <img src="{{boat.imgBoat}}" alt="image" width="150">
+    <div>{{boat.name}}</div>
+    <div>{{boat.type}}</div>
+    <div>{{boat.description}}</div>
+
+  </li>
+</ul>
+ 

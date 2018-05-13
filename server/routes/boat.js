@@ -17,7 +17,8 @@ router.post('/new',[islogginIn, upload.single("file")], (req, res, next) => {
         year,
         capacity,
         size,
-        place
+        place,
+        description
     } = req.body;
     
     const newBoat = new Boat({
@@ -28,7 +29,8 @@ router.post('/new',[islogginIn, upload.single("file")], (req, res, next) => {
         capacity,
         size,
         place,
-        imgBoat
+        imgBoat,
+        description
     });
     newBoat.save()
         .then((boat) => {

@@ -1,0 +1,21 @@
+
+<div *ngIf="sessionService.user">
+  <h5>Hola {{sessionService.user.username}} !!</h5>
+</div>
+
+<div>
+  <p>Eres patrón y te gustaría alquilar tu barco.Por favor,pulsa el botón y rellena el formulario</p>
+
+  <div>
+
+    <button>
+      <a [routerLink]="['register']">Alta barco</a>
+    </button>
+
+  </div>
+</div>
+
+
+
+<app-home></app-home>
+

@@ -23,6 +23,7 @@ const boatSchema = new Schema({
         type: String,
         default: ''
     },
+    description:String
 }, {
     timestamps: {
         createdAt: 'created_at',

@@ -10,7 +10,7 @@ export class SessionService {
 
   user:any;
   userEvent: EventEmitter<any> = new EventEmitter();
-  options: any = { withCredentials:true };
+  options: any = { withCredentials: true };
 
   constructor(private http: Http) {
     this.isLoggedIn().subscribe();
@@ -34,14 +34,14 @@ export class SessionService {
   }
 
   login(username, password) {
-    return this.http.post(`${environment.BASEURL}/api/auth/login`, {username,password}, this.options)
+    return this.http.post(`${environment.BASEURL}/api/auth/login`, {username, password}, this.options)
       .map(res => res.json())
       .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
 
   logout() {
-    return this.http.get(`${environment.BASEURL}/api/auth/logout`,this.options)
+    return this.http.get(`${environment.BASEURL}/api/auth/logout`, this.options)
       .map(() => this.handleUser())
       .catch(this.handleError);
   }
