@@ -3,8 +3,13 @@ const router = express.Router();
 const Boat = require("../models/Boat");
 const _ = require("lodash");
 const fields = Object.keys(_.omit(Boat.schema.paths, ["__v", "_id"]));
+// const googleMapsClient = require("@google/maps").createClient({
+//     key: 'AIzaSyD9Kjl1FZd6-2Sb-6DdC3ASlvPmZOsNKaE',
+//     Promise: Promise
+// });
 const islogginIn = require('../middlewares/isAuthenticated');
 const upload = require('../config/cloudinary');
+const User = require('../models/User');
 
 // Create a boat
 
@@ -18,9 +23,20 @@ router.post('/new',[islogginIn, upload.single("file")], (req, res, next) => {
         capacity,
         size,
         place,
-        coordinates,
-        description
+        description,
+        price
     } = req.body;
+    // console.log(req.body.place);
+    // googleMapsClient
+    //     .geocode({place})
+    //     .asPromise()
+    //     .then(data =>{
+    //         lat = data.json.results[0].geometry.viewport.northeast.lat;
+    //         lng = data.json.results[0].geometry.viewport.northeast.lng;
+    //         console.log(data);
+
+    //         const coordinates = [lat, lng];
+    //     });
     
     const newBoat = new Boat({
         name,
@@ -30,9 +46,10 @@ router.post('/new',[islogginIn, upload.single("file")], (req, res, next) => {
         capacity,
         size,
         place,
-        coordinates,
+        // coordinates,
         imgBoat,
-        description
+        description,
+        price
     });
     newBoat.save()
         .then((boat) => {

@@ -3,5 +3,4 @@ export interface Reservation {
     boat: String,
     origin: String,
     destination: String
-
 }

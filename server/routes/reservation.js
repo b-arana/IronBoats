@@ -4,6 +4,7 @@ const User = require('../models/User');
 const Boat = require('../models/Boat');
 const Reservation = require('../models/Reservation');
 const islogginIn = require('../middlewares/isAuthenticated');
+const isOwner = require('../middlewares/isOwner');
 
 
 // Creating a reserve
@@ -27,7 +28,7 @@ router.post("/:boat", islogginIn, (req, res, next) => {
         price
     });
     newReservation.save()
-        .then((savedReservation) => res.status(200).json(savedReservation))
+        .then((reserva) => res.status(200).json(reserva))
         .catch((e) => res.status(500).json(e));
 });
 
@@ -52,7 +53,7 @@ router.get('/delete/:id', islogginIn, (req, res, next) => {
     const reserva = req.params.id;
     console.log(reserva);
     Reservation.findByIdAndRemove(req.params.id)
-        .then( reservationDelete => res.status(200).json(reservationDelete))
+        .then(reserva => res.status(200).json(reserva))
         .catch(e => res.status(500).json(e));
 });
 

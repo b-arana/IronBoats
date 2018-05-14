@@ -22,7 +22,8 @@ export const routes: Routes = [
   {path: 'user/register', component: RegisterBoatComponent},
   {path: 'user', component: ProfileUserComponent},
   {path: 'profile/owner', component: ProfileOwnerComponent},
-  {path: 'home/boat/:id', component: DetailBoatComponent}
+  {path: 'home/boat/:id', component: DetailBoatComponent},
+  { path: '**', redirectTo: '', pathMatch: 'full' }
  
 ];
 

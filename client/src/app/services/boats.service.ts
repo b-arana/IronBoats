@@ -27,6 +27,7 @@ export class BoatsService {
 			return res.json();
 		});
 	}
+	
 
 	// showDetailsBoat(id) {
 	// 	return this.http.put(`${environment.BASEURL}/api/boat/${id}/edit`, id, { withCredentials: true }).map((res) => {

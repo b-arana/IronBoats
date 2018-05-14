@@ -20,6 +20,8 @@ import { ProfileOwnerComponent } from './componentes/profileOwner/profileOwner.c
 import { ProfileUserComponent } from './componentes/profileUser/profileUser.component';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { DetailBoatComponent } from './componentes/detailBoat/detailBoat.component';
+import { AgmCoreModule } from '@agm/core';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -36,6 +38,7 @@ import { DetailBoatComponent } from './componentes/detailBoat/detailBoat.compone
     ProfileUserComponent,
     FileSelectDirective,
     DetailBoatComponent
+    
    
     
     
@@ -44,7 +47,10 @@ import { DetailBoatComponent } from './componentes/detailBoat/detailBoat.compone
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AgmCoreModule.forRoot({
+      apiKey: environment.APIKEY
+    })
   ],
   providers: [SessionService, RegistrerBoatService, BoatsService],
   bootstrap: [AppComponent]

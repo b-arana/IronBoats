@@ -22,6 +22,11 @@ export class RegisterBoatComponent implements OnInit {
 	year: any;
 	capacity: any;
 	imgBoat: any;
+	place: any;
+	description: any;
+	size: Object;
+	owner: any;
+	price: any;
 
 	boats: Array<any> = [];
 
@@ -34,6 +39,12 @@ export class RegisterBoatComponent implements OnInit {
 			form.append('type', this.type);
 			form.append('year', this.year);
 			form.append('capacity', this.capacity);
+			form.append('place', this.place);
+			form.append('size', this.size);
+			form.append('description', this.description);
+			form.append('price', this.price);
+
+
 		};
 
 		this.uploader.uploadAll();

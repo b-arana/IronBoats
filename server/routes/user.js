@@ -5,6 +5,7 @@ const _ = require("lodash");
 const fields = Object.keys(_.omit(User.schema.paths, ["__v", "_id"]));
 const islogginIn = require('../middlewares/isAuthenticated');
 
+
 // Create User Ok
 
 router.post("/new", (req, res, next) => {

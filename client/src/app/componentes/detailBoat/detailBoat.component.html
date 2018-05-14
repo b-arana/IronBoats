@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div>
+    <div >
       <h4>Hola </h4>
     </div>
     <div class="offset-lg-4 col-8" *ngIf="boat">
@@ -33,19 +33,23 @@
             <div>
               <span>Ubicación: {{boat.place}}</span>
             </div>
+            <div>
+              <strong>Price: {{boat.price}} € por día </strong>
+            </div>
 
             <p>INTRODUCIR GEOLOCALIZACION</p>
+            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
 
+              <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>
 
           </div>
-
-       
-
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<button (click)="cancel()">Volver</button>
 
+
+<button (click)="cancel()">Volver</button>

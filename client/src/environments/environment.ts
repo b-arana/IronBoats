@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  BASEURL:"http://localhost:3000"
+  BASEURL:"http://localhost:3000",
+  APIKEY: "AIzaSyD9Kjl1FZd6-2Sb-6DdC3ASlvPmZOsNKaE",
 };

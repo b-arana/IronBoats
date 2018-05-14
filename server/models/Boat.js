@@ -16,15 +16,13 @@ const boatSchema = new Schema({
         openwork: Number // Calado
     },
     place: String,
-    coordinates: {
-        latitude: Number,
-        longitude: Number
-    },
+    coordinates:Array ,
     imgBoat: {
         type: String,
         default: ''
     },
-    description:String
+    description:String,
+    price: Number
 }, {
     timestamps: {
         createdAt: 'created_at',

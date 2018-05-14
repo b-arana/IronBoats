@@ -26,18 +26,19 @@ const users = [{
     role: "Shipmaster"
 }];
 
-
 const boats = [{
     name: "Mariah 215 SX",
     type: "Lancha",
     year: 2014,
-    capacity: 10,
+    capacity: 5,
     size: {
         lenght: 6.4, // Eslora
         width: 2.4, // Manga
         openwork: 0.5
     },
     imgBoat: 'https://static1.clickandboat.com/v1/p/r2gwtwpexvl3ptxwqgjxsqm2p8exl58x.medium.jpg.gz',
+    location: "Ibiza",
+    description: "Esta bonita embarcación con capacidad para 5 personas les permitirá disfrutar de la costa de Ibiza junto a la compañía de un grupo de familiares o amigos. La embarcación se alquila sin patrón, puesto que no se necesita de licencia o titulín alguno para poder manejar el barco. Cualquier persona puede manejarlo, lo que hace de él, una estupenda oportunidad para iniciarse en el mundo de la navegación."
 }];
 
 User.collection.drop();

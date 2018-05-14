@@ -23,11 +23,22 @@
     <label for="description">Descripción</label>
     <textarea name="description" id="description" cols="30" rows="10" [(ngModel)]="description"></textarea>
   </div>
+<div class="form-group">
+  <label for="type">Ubicación</label>
+<select class="form-control-sm" id="place" name="place" [(ngModel)]="place">
+
+    <option>Palma de Mallorca</option>
+    <option>Altea</option>
+    <option>Castro Urdiales</option>
+  </select>
+</div>
+
+
 
   <fieldset>
     <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
   </fieldset>
-  <button (click)="getNewBoat()">newboat</button>
+  <button (click)="getNewBoat()">Añade tu barco</button>
 </form>
 
 <button (click)="cancel()">Volver</button>
