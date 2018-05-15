@@ -16,19 +16,23 @@ const boatSchema = new Schema({
         openwork: Number // Calado
     },
     place: String,
-    coordinates:Array ,
+//     location:{type: {type: String, coordinates:[Number]},
+// },
+    location:[], 
     imgBoat: {
         type: String,
         default: ''
     },
     description:String,
-    price: Number
+    price: Number, default:0
 }, {
     timestamps: {
         createdAt: 'created_at',
         updatedAt: 'updated_at'
     }
 });
+
+//boatSchema.index({ location: "2dsphere" });
 
 const Boat = mongoose.model('Boat', boatSchema);
 module.exports = Boat;

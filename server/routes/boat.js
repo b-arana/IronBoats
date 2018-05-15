@@ -1,12 +1,13 @@
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const Boat = require("../models/Boat");
 const _ = require("lodash");
 const fields = Object.keys(_.omit(Boat.schema.paths, ["__v", "_id"]));
-// const googleMapsClient = require("@google/maps").createClient({
-//     key: 'AIzaSyD9Kjl1FZd6-2Sb-6DdC3ASlvPmZOsNKaE',
-//     Promise: Promise
-// });
+const googleMapsClient = require("@google/maps").createClient({
+    key:process.env.MAPSKEY,
+    Promise: Promise
+});
 const islogginIn = require('../middlewares/isAuthenticated');
 const upload = require('../config/cloudinary');
 const User = require('../models/User');
@@ -14,8 +15,10 @@ const User = require('../models/User');
 // Create a boat
 
 router.post('/new',[islogginIn, upload.single("file")], (req, res, next) => {
+
     const owner = req.user._id;
     const imgBoat = req.file.url;
+
     const {
         name,
         type,
@@ -26,37 +29,37 @@ router.post('/new',[islogginIn, upload.single("file")], (req, res, next) => {
         description,
         price
     } = req.body;
-    // console.log(req.body.place);
-    // googleMapsClient
-    //     .geocode({place})
-    //     .asPromise()
-    //     .then(data =>{
-    //         lat = data.json.results[0].geometry.viewport.northeast.lat;
-    //         lng = data.json.results[0].geometry.viewport.northeast.lng;
-    //         console.log(data);
-
-    //         const coordinates = [lat, lng];
-    //     });
     
-    const newBoat = new Boat({
-        name,
-        owner,
-        type,
-        year,
-        capacity,
-        size,
-        place,
-        // coordinates,
-        imgBoat,
-        description,
-        price
-    });
-    newBoat.save()
-        .then((boat) => {
-            res.status(200).json(boat);
-        })
-        .catch((e) => res.status(500).json(e));
+    const geo = place + ", Spain";
 
+    googleMapsClient
+        .geocode({ address: geo })
+        .asPromise()
+        .then(data => {
+            lat = data.json.results[0].geometry.viewport.northeast.lat;
+            lng = data.json.results[0].geometry.viewport.northeast.lng;
+            var location =  [lat, lng];
+            const newBoat = new Boat({
+                name,
+                owner,
+                type,
+                year,
+                capacity,
+                size,
+                place,
+                location,
+                imgBoat,
+                description,
+                price
+            });
+            newBoat.save().then((boat) => {
+                return res.status(200).json(boat);
+            })
+            .catch((e) => {
+                console.log(e);
+                return res.status(500).json(e);
+            });
+        });
 });
 
 // Showing boats
