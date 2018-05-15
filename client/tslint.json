@@ -6,8 +6,8 @@
     "callable-types": true,
     "class-name": true,
     "comment-format": [
-      true,
-      "check-space"
+      false,
+      
     ],
     "curly": true,
     "eofline": true,

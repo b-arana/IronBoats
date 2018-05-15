@@ -32,8 +32,8 @@ const boats = [{
     year: 2014,
     capacity: 5,
     size: {
-        lenght: 6.4, // Eslora
-        width: 2.4, // Manga
+        lenght: 6.4,
+        width: 2.4, 
         openwork: 0.5
     },
     imgBoat: 'https://static1.clickandboat.com/v1/p/r2gwtwpexvl3ptxwqgjxsqm2p8exl58x.medium.jpg.gz',

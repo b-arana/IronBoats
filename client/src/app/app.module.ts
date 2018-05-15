@@ -9,7 +9,6 @@ import { LoginFormComponent } from './componentes/login-form/login-form.componen
 import { HomeComponent } from './componentes/home/home.component';
 import { SignupComponent } from './componentes/signup/signup.component';
 import { ReservationComponent } from './componentes/reservation/reservation.component';
-import { RegistrerBoatService } from './services/registrer-boat.service';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { BoatsComponent } from './componentes/boats/boats.component';
@@ -52,7 +51,7 @@ import { environment } from '../environments/environment';
       apiKey: environment.APIKEY
     })
   ],
-  providers: [SessionService, RegistrerBoatService, BoatsService],
+  providers: [SessionService, BoatsService, ReservationComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

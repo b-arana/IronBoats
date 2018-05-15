@@ -6,7 +6,6 @@ const Reservation = require('../models/Reservation');
 const islogginIn = require('../middlewares/isAuthenticated');
 const isOwner = require('../middlewares/isOwner');
 
-
 // Creating a reserve
 
 router.post("/:boat", islogginIn, (req, res, next) => {
@@ -15,23 +14,24 @@ router.post("/:boat", islogginIn, (req, res, next) => {
     console.log(author);
     console.log(boat);
     const {
-        origin,
-        destination,
+        initialDay,
+        endDay,
+        isWithSkipper,
         price
     } = req.body;
 
     const newReservation = new Reservation({
         author,
         boat,
-        origin,
-        destination,
-        price
+        price,
+        initialDay,
+        endDay,
+        isWithSkipper
     });
     newReservation.save()
         .then((reserva) => res.status(200).json(reserva))
         .catch((e) => res.status(500).json(e));
 });
-
 
 //Showing reservas
 
@@ -45,7 +45,6 @@ router.get("/show/:id_reserva", islogginIn, (req, res, next) => {
         .then( reserva => res.status(200).json(reserva))
         .catch((e) => res.status(500).json(e));
 });
-
 
 //Delete a reserve
 

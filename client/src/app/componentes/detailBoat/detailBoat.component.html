@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div >
+    <div>
       <h4>Hola </h4>
     </div>
     <div class="offset-lg-4 col-8" *ngIf="boat">
@@ -26,9 +26,9 @@
             </div>
             <div>
               <span>Medidas: </span>
-              <i>Eslora: {{boat.size.lenght}} m</i>
-              <i>Manga: {{boat.size.width}} m</i>
-              <i>Calado: {{boat.size.openwork}} m</i>
+              <i>Eslora: {{boat.eslora}} m</i>
+              <i>Manga: {{boat.width}} m</i>
+              <i>Calado: {{boat.openwork}} m</i>
             </div>
             <div>
               <span>Ubicación: {{boat.place}}</span>
@@ -37,11 +37,17 @@
               <strong>Price: {{boat.price}} € por día </strong>
             </div>
 
-            <p>INTRODUCIR GEOLOCALIZACION</p>
-            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+            <div>
+              <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
 
-              <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-            </agm-map>
+                <agm-marker *ngFor="let m of markers" [latitude]="m.lat" [longitude]="m.lng"></agm-marker>
+              </agm-map>
+            </div>
+            <br>
+            
+            <div>
+              <button (click)="cancel()">Volver</button>
+            </div>
 
           </div>
         </div>
@@ -49,7 +55,3 @@
     </div>
   </div>
 </div>
-
-
-
-<button (click)="cancel()">Volver</button>

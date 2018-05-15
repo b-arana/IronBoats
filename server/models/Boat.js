@@ -10,11 +10,9 @@ const boatSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    size: {
-        lenght: Number,  // Eslora
-        width: Number,   // Manga
-        openwork: Number // Calado
-    },
+    openwork: Number,
+    eslora: Number,
+    width: Number,
     place: String,
 //     location:{type: {type: String, coordinates:[Number]},
 // },

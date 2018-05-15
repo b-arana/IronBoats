@@ -6,13 +6,13 @@ export interface Boats {
     capacity: Number;
     owner: String;
     size: {
-        lenght: Number,  // Eslora
-        width: Number,   // Manga
-        openwork: Number // Calado
+        eslora: Number,  
+        width: Number,   
+        openwork: Number 
     };
     place: String;
     price: Number;
-    coordinates: Array<Number>;
+    location: Object;
     imgBoat: {
         type: String,
         default: ''

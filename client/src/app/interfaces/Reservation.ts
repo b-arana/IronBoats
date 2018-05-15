@@ -1,6 +1,7 @@
 export interface Reservation {
     author: String,
     boat: String,
-    origin: String,
-    destination: String
+    price: Number,
+    initialDay: Date,
+    endDay: Date
 }

@@ -5,7 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { SessionService } from '../../services/session.service';
 import { google } from '@agm/core/services/google-maps-types';
-import { User} from '../../interfaces/User';
+import { User } from '../../interfaces/User';
+import { ObjectUnsubscribedError } from 'rxjs';
 
 @Component({
 	selector: 'app-detailBoat',
@@ -13,46 +14,43 @@ import { User} from '../../interfaces/User';
 	styleUrls: [ './detailBoat.component.css' ]
 })
 export class DetailBoatComponent implements OnInit {
-	boat: String;
+	boat: Boats;
 	place: String;
 	user: String;
-	lat: Number = 40.4167;
-	lng: Number = -3.70325;
-	zoom: Number = 8;
+	lat: Number;
+	lng: Number;
+	zoom: Number =10;
+	
 	boats: Array<any> = [];
 	markers: Array<any> = [];
-	geocoder: any;
-	latitude: any;
-	longitude: any;
+	
 
 	constructor(
 		private detailBoats: BoatsService,
 		public router: Router,
-		private location: Location,
+		private comeBack: Location,
 		private route: ActivatedRoute,
 		private session: SessionService
-	) {}
-
-	ngOnInit() {
+	) {
 		this.route.params.subscribe((params) => {
 			this.detailBoats.getDetailsBoat(params.id).subscribe((boat) => {
 				this.boat = boat;
+				console.log(this.boat)
+				this.markers.push(
+					{
+						lat: boat.location[0],
+						lng: boat.location[1]
+					});
 			});
 		});
 	}
 
-	// getLocation = function(place) {
-	// 	this.geocoder = new google.maps.Geocoder();
-	// 	this.geocoder.geocode({ place: place}, function(results, status) {
-	// 		if (status == google.maps.GeocoderStatus.OK) {
-	// 			this.latitude = results[0].geometry.location.lat();
-	// 			this.longitude = results[0].geometry.location.lng();
-	// 			console.log(this.latitude, this.longitude);
-	// 		}
-	// 	});
-	// };
+	ngOnInit() {
+		
+	}
+
 
 	cancel() {
-		this.location.back();
+		this.comeBack.back();
 	}
 }

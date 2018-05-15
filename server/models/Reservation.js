@@ -11,9 +11,13 @@ const reservationSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Boat'
     },
-    origin: String,
-    destination: String,
-    price: Number
+    isWithSkipper: {
+        type: Boolean,
+        default: false
+    },
+    price: Number,
+    initialDay: Date,
+    endDay: Date
 
 });
 

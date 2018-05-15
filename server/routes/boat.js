@@ -15,7 +15,8 @@ const User = require('../models/User');
 // Create a boat
 
 router.post('/new',[islogginIn, upload.single("file")], (req, res, next) => {
-
+    // console.log(JSON.stringify(req.body.size));
+    console.log(req.body.width, req.body.eslora, req.body.openwork);
     const owner = req.user._id;
     const imgBoat = req.file.url;
 
@@ -24,12 +25,13 @@ router.post('/new',[islogginIn, upload.single("file")], (req, res, next) => {
         type,
         year,
         capacity,
-        size,
         place,
         description,
-        price
+        price,
+        width,
+        eslora,
+        openwork
     } = req.body;
-    
     const geo = place + ", Spain";
 
     googleMapsClient
@@ -45,12 +47,15 @@ router.post('/new',[islogginIn, upload.single("file")], (req, res, next) => {
                 type,
                 year,
                 capacity,
-                size,
                 place,
                 location,
                 imgBoat,
                 description,
-                price
+                price,
+                width,
+                eslora,
+                openwork
+
             });
             newBoat.save().then((boat) => {
                 return res.status(200).json(boat);

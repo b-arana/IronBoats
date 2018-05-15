@@ -24,16 +24,28 @@ export class RegisterBoatComponent implements OnInit {
 	imgBoat: any;
 	place: any;
 	description: any;
-	size: Object;
+	size: any = {}
 	owner: any;
 	price: any;
-
+	eslora;
+	width;
+	openwork;
 	boats: Array<any> = [];
+
 
 	constructor(private registerBoat: BoatsService, public router: Router, private location: Location) {}
 	ngOnInit() {}
 
 	getNewBoat() {
+		
+		const eslora = this.eslora;
+		const width = this.width;
+		const openwork = this.openwork;
+		const price = this.price;
+
+		console.log(eslora, width, openwork, price);
+		
+
 		this.uploader.onBuildItemForm = (item, form) => {
 			form.append('name', this.name);
 			form.append('type', this.type);
@@ -41,18 +53,18 @@ export class RegisterBoatComponent implements OnInit {
 			form.append('capacity', this.capacity);
 			form.append('place', this.place);
 			form.append('size', this.size);
+			form.append('eslora', this.eslora);
+			form.append('width', this.width);
+			form.append('openwork', this.openwork);
 			form.append('description', this.description);
-			form.append('price', this.price);
-
-
+			form.append('price', this.price); 
 		};
+		
+	this.uploader.uploadAll();
 
-		this.uploader.uploadAll();
-
-		this.uploader.onSuccessItem = (item, response) => {
-			this.router.navigateByUrl('/profile/owner');
-			console.log('redirect a la pagina');
-		};
+	 this.uploader.onSuccessItem = (item, response) => {
+		 	this.router.navigateByUrl('/profile/owner');
+		}; 
 	}
 
 	cancel() {
