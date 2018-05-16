@@ -5,16 +5,17 @@ import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 import { environment } from '../../environments/environment';
 import {Reservation} from '../interfaces/Reservation';
+import {Boats} from '../interfaces/Boats';
 
 @Injectable()
 export class ReservationService {
 
 	constructor(private http: Http) { }
 
-	addReservation(data){
-		console.log(data)
-		return this.http.post(`${environment.BASEURL}/api/boat/new`, data, { withCredentials: true })
+	addReservation(bookData){
+		return this.http.post(`${environment.BASEURL}/api/reservation/${bookData.boatID}`, bookData, { withCredentials: true })
 		.map((res) => { return res.json()});
+		
 	}
 
 }

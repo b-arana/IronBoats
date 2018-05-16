@@ -36,15 +36,59 @@
             <div>
               <strong>Price: {{boat.price}} € por día </strong>
             </div>
+            <h3>Datos de reserva</h3>
+
+            <form>
+              <div>
+                <h4>Inicio</h4>
+                <input type="date" [(ngModel)]="initialDay" name="initialDay">
+              </div>
+              <div>
+                <h4>Final</h4>
+                <input type="date" [(ngModel)]="endDay" name="endDay">
+                <button (click)="getDays()">Confirmación fechas</button>
+
+              </div>
+              <div>
+                <h4>Días totales: {{this.days}} </h4>
+              </div>
+              <div>
+                <h4>Precio Total: </h4>
+                <input type="text" value="{{this.days * this.boat.price | currency:'EUR':true:'2.2-4'}}">
+              </div>
+
+              <div>
+                <br>
+                <button (click)="submitReservation(this.boat.price)">Confirmar reserva</button>
+                <br>
+              </div>
+            </form>
+            <br>
+
 
             <div>
-              <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+              <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="true" [zoomControl]="true" (mapClick)="mapClicked($event)">
 
-                <agm-marker *ngFor="let m of markers" [latitude]="m.lat" [longitude]="m.lng"></agm-marker>
+
+
+                <agm-marker *ngFor="let m of markers" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable"
+                  (dragEnd)="markerDragEnd(m, $event)">
+
+
+
+                  <agm-info-window>
+                    <strong>{{boat.place}}</strong>
+                  </agm-info-window>
+
+                </agm-marker>
+
+                <!-- <agm-circle [latitude]="lat + 10000" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true" [editable]="true">
+                </agm-circle> -->
+
               </agm-map>
             </div>
             <br>
-            
+
             <div>
               <button (click)="cancel()">Volver</button>
             </div>

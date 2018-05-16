@@ -59,7 +59,7 @@ User.create(users)
             boat: boatDocs[0]._id,
             origin: "Club Nautico Ibiza",
             destination: "Club Nautico Altea",
-            price: 300
+            totalPrice: 300
         }];
         return Reservation.create(reservations);
     });

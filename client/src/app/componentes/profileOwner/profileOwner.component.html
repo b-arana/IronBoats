@@ -1,11 +1,99 @@
+<div>
+  Hola Owner</div>
 
-<div>Hola Owner</div>
+<div *ngIf="sessionService.user && currentBoat">
 
-<div *ngIf="sessionService.user">
 
-<h3>Hola {{sessionService.user.username}}</h3>
+  <h3>Hola {{sessionService.user.username}}</h3>
 
-<p>List the boats of the owner</p>
+  <h4>Modificar datos del barco</h4>
+  <form>
+    <div class="form-group">
+      <label for="name">Nombre del barco</label>
+      <input type="text" class="form-control-sm" id="name" placeholder="Nombre " name="name" [(ngModel)]="currentBoat.name">
+    </div>
+    <div class="form-group">
+      <label for="type">Tipo de barco</label>
+      <select class="form-control-sm" id="type" name="type" [(ngModel)]="currentBoat.type">
+
+        <option>Yate</option>
+        <option>Catamarán</option>
+        <option>Velero</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="year">Año</label>
+      <input type="number" class="form-control-sm" id="year" min="1995" max="2018" name="year" [(ngModel)]="currentBoat.year">
+
+    </div>
+    <div class="form-group">
+      <label for="capacity">Capacidad máx.personas</label>
+      <input type="number" class="form-control-sm" id="capacity" min="4" max="16" name="capacity" [(ngModel)]="currentBoat.capacity">
+
+    </div>
+
+    <div class="form-group">
+      <label for="price">Precio/Día </label>
+      <input type="text" class="form-control-sm" name="price" [(ngModel)]="currentBoat.price">
+
+    </div>
+
+
+    <div class="form-group">
+      <label for="description">Descripción</label>
+      <textarea name="description" id="description" cols="30" rows="10" [(ngModel)]="currentBoat.description"></textarea>
+
+    </div>
+
+    <div class="form-group">
+      <label for="type">Ubicación</label>
+      <select class="form-control-sm" name="place" [(ngModel)]="currentBoat.place">
+
+        <option>Club Náutico de Ibiza</option>
+        <option>Puerto Deportivo de Sancti Petri</option>
+        <option>Club Náutico Altea</option>
+        <option>Club Nàutic Salou</option>
+        <option>Real Club Náutico Roquetas de Mar</option>
+        <option>Club Náutico Deportivo de Ribeira</option>
+        <option>Puerto Deportivo Sanxenxo</option>
+        <option>Club Nautico Vinaròs</option>
+        <option>Real Club Naútico de Palma</option>
+        <option>Marina Santa Cruz</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+
+      <div>
+        <label for="type">Medidas</label>
+      </div>
+      <div>
+        <label for="type">Eslora</label>
+        <input type="text" class="form-control-sm" name="eslora" [(ngModel)]="currentBoat.eslora">
+
+      </div>
+      <div>
+        <label for="type">Manga</label>
+        <input type="text" class="form-control-sm" name="manga" [(ngModel)]="currentBoat.width">
+
+      </div>
+      <div>
+        <label for="type">Calado</label>
+        <input type="text" class="form-control-sm" name="calado" [(ngModel)]="currentBoat.openwork">
+
+      </div>
+
+    </div>
+
+    <fieldset>
+      <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+    </fieldset>
+    <button (click)="editBoat(boatID)">Edita tu barco</button>
+
+  </form>
+
+  <button (click)="cancel()">Volver</button>
+
 
 
 

@@ -4,6 +4,7 @@ export interface Boats {
     type: String;
     year: Number;
     capacity: Number;
+    description:String;
     owner: String;
     size: {
         eslora: Number,  

@@ -17,13 +17,13 @@ router.post("/:boat", islogginIn, (req, res, next) => {
         initialDay,
         endDay,
         isWithSkipper,
-        price
+        totalPrice
     } = req.body;
 
     const newReservation = new Reservation({
         author,
         boat,
-        price,
+        totalPrice,
         initialDay,
         endDay,
         isWithSkipper

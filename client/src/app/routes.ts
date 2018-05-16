@@ -17,11 +17,11 @@ export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent },
-  {path: 'reservation', component: ReservationComponent},
+  {path: 'confirm', component: ReservationComponent},
   {path: 'boats', component: BoatsComponent},
   {path: 'user/register', component: RegisterBoatComponent},
   {path: 'user', component: ProfileUserComponent},
-  {path: 'profile/owner', component: ProfileOwnerComponent},
+  {path: 'profile/owner/:id', component: ProfileOwnerComponent},
   {path: 'home/boat/:id', component: DetailBoatComponent},
   { path: '**', redirectTo: '', pathMatch: 'full' }
  

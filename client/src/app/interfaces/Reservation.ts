@@ -1,7 +1,8 @@
 export interface Reservation {
     author: String,
     boat: String,
-    price: Number,
+    totalPrice: Number,
     initialDay: Date,
-    endDay: Date
+    endDay: Date,
+    isWithSkipper: {type: Boolean , default: false}
 }

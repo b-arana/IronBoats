@@ -15,7 +15,7 @@ const reservationSchema = new Schema({
         type: Boolean,
         default: false
     },
-    price: Number,
+    totalPrice: Number,
     initialDay: Date,
     endDay: Date
 

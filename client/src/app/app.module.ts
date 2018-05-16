@@ -21,6 +21,7 @@ import { FileSelectDirective } from 'ng2-file-upload';
 import { DetailBoatComponent } from './componentes/detailBoat/detailBoat.component';
 import { AgmCoreModule } from '@agm/core';
 import { environment } from '../environments/environment';
+import { ReservationService } from './services/reservation.service';
 
 
 @NgModule({
@@ -51,7 +52,7 @@ import { environment } from '../environments/environment';
       apiKey: environment.APIKEY
     })
   ],
-  providers: [SessionService, BoatsService, ReservationComponent],
+  providers: [SessionService, BoatsService, ReservationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

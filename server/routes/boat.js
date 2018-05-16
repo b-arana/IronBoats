@@ -86,15 +86,17 @@ router.get("/show/:id", (req, res, next) =>{
 
 // Update boats - Solo lo puede editar el dueño
 
-router.put("/:id/edit", islogginIn, (req, res, next) => {
+router.post("/:id/edit", islogginIn, (req, res, next) => {
     const updates = _.pick(req.body, fields);
+    console.log();
 
     Boat.findById(req.params.id)
         .then(boat => {
             if (req.user.id.toString() == boat.owner.toString()) {
-                Boat.findByIdAndUpdate(req.params.id, updates, {
-                        new: true
+               Boat.findByIdAndUpdate(req.params.id, updates, {
+                        new: true    
                     })
+                    
                     .then(userEdit => res.status(200).json(userEdit))
                     .catch(err => res.status(500).json(err));
             }else {

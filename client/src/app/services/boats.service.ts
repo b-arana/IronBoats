@@ -23,9 +23,14 @@ export class BoatsService {
 		});
 	}
 	getDetailsBoat(id) {
-		return this.http.get(`${environment.BASEURL}/api/boat/show/${id}`, id).map((res) => {
+		return this.http.get(`${environment.BASEURL}/api/boat/show/${id}`, { withCredentials: true }).map((res) => {
 			return res.json();
 		});
+	}
+	editBoats(id, updates){
+		return this.http.post(`${environment.BASEURL}/api/boat/${id}/edit`, updates, { withCredentials: true }).map((res)=>{
+			return res.json();
+		})
 	}
 	
 }
