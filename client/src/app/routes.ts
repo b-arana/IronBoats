@@ -5,7 +5,6 @@ import { BoatsComponent } from './componentes/boats/boats.component';
 import { RegisterBoatComponent } from './componentes/register-boat/register-boat.component';
 import { SignupComponent } from './componentes/signup/signup.component';
 import { LoginComponent } from './componentes/login/login.component';
-import { LoginFormComponent } from './componentes/login-form/login-form.component';
 import { Profile } from 'selenium-webdriver/firefox';
 import { ProfileOwnerComponent } from './componentes/profileOwner/profileOwner.component';
 import { ProfileUserComponent } from './componentes/profileUser/profileUser.component';
@@ -23,8 +22,8 @@ export const routes: Routes = [
   {path: 'user', component: ProfileUserComponent},
   {path: 'profile/owner/:id', component: ProfileOwnerComponent},
   {path: 'home/boat/:id', component: DetailBoatComponent},
-  { path: '**', redirectTo: '', pathMatch: 'full' }
- 
+  {path: '**', redirectTo: '', pathMatch: 'full' },
+  
 ];
 
 export default routes;

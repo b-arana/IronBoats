@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Homemade+Apple');
+
+
+h1 {
+  font-size: 5em;
+  font-family: 'Bad Script', cursive;
+  
+}
+
+p {
+  font-size: 2em;
+  font-family: 'Bad Script', cursive;
+  padding-bottom: 5%;
+}
+
+h1, p {
+    padding-top: 4%;
+    color: #347D87;
+
+}

@@ -1,12 +1,9 @@
 <div class="container">
   <div class="row">
-    <div>
-      <h4>Hola </h4>
-    </div>
-    <div class="offset-lg-4 col-8" *ngIf="boat">
+    <div class="offset-lg-4 col-8 text" *ngIf="boat">
       <div class="card">
         <h5>CARACTERISTICAS DEL BARCO</h5>
-        <img src="{{boat.imgBoat}}" alt="PHOTO" width="400px" height="200px">
+        <img src="{{boat.imgBoat}}" alt="PHOTO" width="400px" height="300px">
         <div class="card-block">
           <h4>Owner</h4>
           <div id="description">
@@ -15,6 +12,7 @@
           </div>
           <hr>
           <div id="detalles">
+
             <h5>DETALLES</h5>
             <div>
               <span>Capacidad:</span>
@@ -31,68 +29,58 @@
               <i>Calado: {{boat.openwork}} m</i>
             </div>
             <div>
-              <span>Ubicación: {{boat.place}}</span>
+              <span>Ubicación: </span>
+              <i>{{boat.place}}</i>
             </div>
             <div>
-              <strong>Price: {{boat.price}} € por día </strong>
+              <span>Price: </span>
+              <i>{{boat.price}} € por día</i>
             </div>
-            <h3>Datos de reserva</h3>
+            <div>
+              <h4>Datos de reserva</h4>
+              <form>
+                <div>
+                  <h4>Inicio</h4>
+                  <input type="date" [(ngModel)]="initialDay" name="initialDay">
+                </div>
+                <div>
+                  <h4>Final</h4>
+                  <input type="date" [(ngModel)]="endDay" name="endDay">
+                </div>
+                <div>
+                  <hr>
+                  <button type="button" class="btn btn-warning btn-rounded" (click)="getDays()">Confirmar fechas</button>
+                </div>
 
-            <form>
-              <div>
-                <h4>Inicio</h4>
-                <input type="date" [(ngModel)]="initialDay" name="initialDay">
-              </div>
-              <div>
-                <h4>Final</h4>
-                <input type="date" [(ngModel)]="endDay" name="endDay">
-                <button (click)="getDays()">Confirmación fechas</button>
+                <div>
+                  <h4>Días totales: {{this.days}} </h4>
+                </div>
+                <div>
+                  <h4>Precio Total: {{this.days * this.boat.price | currency:'EUR':true:'2.2-4'}} </h4>
+                </div>
 
-              </div>
-              <div>
-                <h4>Días totales: {{this.days}} </h4>
-              </div>
-              <div>
-                <h4>Precio Total: </h4>
-                <input type="text" value="{{this.days * this.boat.price | currency:'EUR':true:'2.2-4'}}">
-              </div>
-
-              <div>
-                <br>
-                <button (click)="submitReservation(this.boat.price)">Confirmar reserva</button>
-                <br>
-              </div>
-            </form>
-            <br>
-
-
+                <div>
+                  <br>
+                  <button type="button" class="btn btn-warning btn-rounded" (click)="submitReservation(this.boat.price)">Confirmar reserva</button>
+                  <br>
+                </div>
+              </form>
+              <br>
+            </div>
             <div>
               <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="true" [zoomControl]="true" (mapClick)="mapClicked($event)">
-
-
-
                 <agm-marker *ngFor="let m of markers" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable"
                   (dragEnd)="markerDragEnd(m, $event)">
-
-
-
                   <agm-info-window>
                     <strong>{{boat.place}}</strong>
                   </agm-info-window>
-
                 </agm-marker>
-
-                <!-- <agm-circle [latitude]="lat + 10000" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true" [editable]="true">
-                </agm-circle> -->
-
               </agm-map>
             </div>
             <br>
-
             <div>
-              <button (click)="cancel()">Volver</button>
+              <button class="circle" (click)="cancel()">Volver</button>
             </div>
-
           </div>
         </div>
       </div>

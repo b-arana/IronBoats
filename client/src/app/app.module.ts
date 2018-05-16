@@ -2,10 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import { AppComponent } from './componentes/app.component';
 import { SessionService } from './services/session.service';
-import { LoginFormComponent } from './componentes/login-form/login-form.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { SignupComponent } from './componentes/signup/signup.component';
 import { ReservationComponent } from './componentes/reservation/reservation.component';
@@ -24,10 +22,11 @@ import { environment } from '../environments/environment';
 import { ReservationService } from './services/reservation.service';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginFormComponent,
     HomeComponent,
     SignupComponent,
     ReservationComponent,
@@ -37,10 +36,9 @@ import { ReservationService } from './services/reservation.service';
     ProfileOwnerComponent,
     ProfileUserComponent,
     FileSelectDirective,
-    DetailBoatComponent
-    
-   
-    
+    DetailBoatComponent,
+ 
+  
     
 ],
   imports: [

@@ -1,8 +1,12 @@
 <form>
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="name">Nombre del barco</label>
     <input type="text" class="form-control-sm" id="name" placeholder="Nombre " name="name" [(ngModel)]="name">
   </div>
+
+
+
+
   <div class="form-group">
     <label for="type">Tipo de barco</label>
     <select class="form-control-sm" id="type" name="type" [(ngModel)]="type">
@@ -24,14 +28,21 @@
     <label for="price">Precio/Día </label>
     <input type="text" class="form-control-sm" name="price" [(ngModel)]="price">
   </div>
+ -->
 
 
-  <div class="form-group">
-    <label for="description">Descripción</label>
-    <textarea name="description" id="description" cols="30" rows="10" [(ngModel)]="description"></textarea>
-  </div>
+  <!-- <div class="md-form">
+    <label for="textareaBasic">Descripción</label>
 
-  <div class="form-group">
+    <textarea type="text" id="textareaBasic" class="form-control md-textarea" rows="3" name="description" [(ngModel)]="description"></textarea>
+
+
+
+
+  </div> -->
+
+
+  <!-- <div class="form-group">
     <label for="type">Ubicación</label>
     <select class="form-control-sm" name="place" [(ngModel)]="place">
       <option>Club Náutico de Ibiza</option>
@@ -45,9 +56,11 @@
       <option>Real Club Naútico de Palma</option>
       <option>Marina Santa Cruz</option>
     </select>
-  </div>
+  </div> -->
 
-  <div class="form-group">
+
+
+  <!-- <div class="form-group">
 
     <div>
       <label for="type">Medidas</label>
@@ -65,14 +78,170 @@
       <input type="text" class="form-control-sm" name="calado" [(ngModel)]="this.openwork">
     </div>
 
-  </div>
+  </div> -->
 
-  <fieldset>
+
+
+
+
+
+  <!-- <fieldset>
     <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
-  </fieldset>
-  <button (click)="getNewBoat()">Añade tu barco</button>
+  </fieldset> -->
+  <!-- <button (click)="getNewBoat()">Añade tu barco</button>
 </form>
 
-<button (click)="cancel()">Volver</button>
+<button (click)="cancel()">Volver</button> -->
 
 
+
+  <form>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <form class="form-horizontal" role="form">
+          <fieldset>
+
+            <!-- Form Name -->
+            <legend>Datos del barco</legend>
+
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="textinput">Nombre</label>
+              <div class="col-sm-10">
+                <input type="text" placeholder="Nombre" class="form-control" name="name" [(ngModel)]="name">
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="textinput">Tipo</label>
+              <div class="col-sm-10">
+                <select class="form-control-sm" name="type" [(ngModel)]="type">
+                  <option>Yate</option>
+                  <option>Catamarán</option>
+                  <option>Velero</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="textinput">Ubicación</label>
+              <div class="col-sm-10">
+
+                <select class="form-control-sm" name="place" [(ngModel)]="place">
+                  <option>Club Náutico de Ibiza</option>
+                  <option>Puerto Deportivo de Sancti Petri</option>
+                  <option>Club Náutico Altea</option>
+                  <option>Club Nàutic Salou</option>
+                  <option>Real Club Náutico Roquetas de Mar</option>
+                  <option>Club Náutico Deportivo de Ribeira</option>
+                  <option>Puerto Deportivo Sanxenxo</option>
+                  <option>Club Nautico Vinaròs</option>
+                  <option>Real Club Naútico de Palma</option>
+                  <option>Marina Santa Cruz</option>
+                </select>
+
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="textinput">Precio</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" name="price" [(ngModel)]="price">
+              </div>
+              <label class="col-sm-2 control-label" for="textinput">Capacidad</label>
+              <div class="col-sm-4">
+                <input type="number" class="form-control" min="4" max="14" name="capacity" [(ngModel)]="capacity">
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="textinput">Año</label>
+              <div class="col-sm-4">
+                <input type="number" class="form-control-sm" id="year" min="2005" max="2018" name="year" [(ngModel)]="year">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="textinput">Eslora</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" name="eslora" [(ngModel)]="this.eslora">
+              </div>
+              <label class="col-sm-2 control-label" for="textinput">Manga</label>
+              <div class="col-sm-4">
+                <input type="number" class="form-control" min="4" max="14" name="manga" [(ngModel)]="this.width">
+              </div>
+              <label class="col-sm-2 control-label" for="textinput">Calado</label>
+              <div class="col-sm-4">
+                <input type="number" class="form-control" min="4" max="14" name="calado" [(ngModel)]="this.openwork">
+              </div>
+            </div>
+
+            <div class="md-form">
+              <label for="textareaBasic">Descripción</label>
+              <textarea type="text" id="textareaBasic" class="form-control md-textarea" rows="3" name="description" [(ngModel)]="description"></textarea>
+            </div>
+
+            <fieldset>
+              <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+            </fieldset>
+
+
+
+
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <div class="pull-right">
+                  <button type="submit" (click)="cancel()" class=" btn btn-default ">Volver</button>
+
+
+                  <button type="submit" (click)="getNewBoat()" class="btn btn-primary ">Salvar</button>
+
+                </div>
+              </div>
+            </div>
+
+          </fieldset>
+        </form>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </form>
+
+
+  <!-- /.row -->
