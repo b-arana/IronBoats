@@ -1,21 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div *ngIf="sessionService.user">
+        <h2>Hola {{sessionService.user.username}} !!</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <p>Estas son nuestras recomendaciones del día......</p>
+      <app-boats numBoats=3></app-boats>
 
-<div *ngIf="sessionService.user">
-  <h5>Hola {{sessionService.user.username}} !!</h5>
-</div>
-
-<div>
-  <p>Eres patrón y te gustaría alquilar tu barco.Por favor,pulsa el botón y rellena el formulario</p>
-
-  <div>
-
-    <button>
-      <a [routerLink]="['register']">Alta barco</a>
-    </button>
-
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <p>Eres patrón y te gustaría alquilar tu barco.Por favor,pulsa el botón y rellena el formulario</p>
+    </div>
+    <div class="col-md-12 text-center">
+      <button>
+        <a [routerLink]="['register']">Alta barco</a>
+      </button>
+    </div>
   </div>
 </div>
-
-
-
-<app-home></app-home>
-

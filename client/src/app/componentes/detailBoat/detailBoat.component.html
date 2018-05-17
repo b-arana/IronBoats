@@ -1,10 +1,9 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="offset-lg-4 col-8 text" *ngIf="boat">
       <div class="card">
         <h5>Características Técnicas</h5>
         <img class="border-button" src="{{boat.imgBoat}}" alt="PHOTO" width="600px" height="500px">
-
         <div class="card-block">
           <h3>{{boat.name}}</h3>
           <div id="description">
@@ -12,8 +11,10 @@
             <p>{{boat.description}}</p>
           </div>
           <hr>
-          <div id="detalles">
 
+
+
+          <div id="detalles">
             <h5>Detalles</h5>
             <div>
               <span>Capacidad:</span>
@@ -37,55 +38,161 @@
               <span>Price: </span>
               <i>{{boat.price}} € por día</i>
             </div>
-            <div>
-              <h4>Datos de reserva</h4>
-              <form>
-                <div>
-                  <h4>Inicio</h4>
-                  <input type="date" [(ngModel)]="initialDay" name="initialDay">
-                </div>
-                <div>
-                  <h4>Final</h4>
-                  <input type="date" [(ngModel)]="endDay" name="endDay">
-                </div>
-                <div>
-                  <hr>
-                  <button type="button" class="btn btn-warning btn-rounded" (click)="getDays(boat.price)">Confirmar fechas</button>
-
-                </div>
-
-                <div>
-                  <h4>Días totales: {{this.days}} </h4>
-                </div>
-                <div>
-                  <h4>Precio Total: {{totalPrice | currency:'EUR':true:'2.2-4'}} </h4>
-                </div>
-
-                <div>
-                  <br>
-                  <button type="button" class="btn btn-warning btn-rounded" (click)="submitReservation(boat.price)">Confirmar reserva</button>
-                  <br>
-                </div>
-              </form>
-              <br>
-            </div>
-            <div>
-              <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="true" [zoomControl]="true" (mapClick)="mapClicked($event)">
-                <agm-marker *ngFor="let m of markers" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable"
-                  (dragEnd)="markerDragEnd(m, $event)">
-                  <agm-info-window>
-                    <strong>{{boat.place}}</strong>
-                  </agm-info-window>
-                </agm-marker>
-              </agm-map>
-            </div>
-            <br>
-            <div>
-              <button class="circle" (click)="cancel()">Volver</button>
-            </div>
           </div>
+
+
+
+
+          <div>
+            <h4>Datos de reserva</h4>
+            <form>
+              <div>
+                <h4>Inicio</h4>
+                <input type="date" [(ngModel)]="initialDay" name="initialDay">
+              </div>
+              <div>
+                <h4>Final</h4>
+                <input type="date" [(ngModel)]="endDay" name="endDay">
+              </div>
+              <div>
+                <hr>
+                <button type="button" class="btn btn-warning btn-rounded" (click)="getDays(boat.price)">Confirmar fechas</button>
+
+              </div>
+
+              <div>
+                <h4>Días totales: {{this.days}} </h4>
+              </div>
+              <div>
+                <h4>Precio Total: {{totalPrice | currency:'EUR':true:'2.2-4'}} </h4>
+              </div>
+
+              <div>
+                <br>
+                <button type="button" class="btn btn-warning btn-rounded" (click)="submitReservation(boat.price)">Confirmar reserva</button>
+                <br>
+              </div>
+            </form>
+            <br>
+          </div>
+
+
+
+
+          <div>
+            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="true" [zoomControl]="true" (mapClick)="mapClicked($event)">
+              <agm-marker *ngFor="let m of markers" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable"
+                (dragEnd)="markerDragEnd(m, $event)">
+                <agm-info-window>
+                  <strong>{{boat.place}}</strong>
+                </agm-info-window>
+              </agm-marker>
+            </agm-map>
+          </div>
+
+
+
+
+          <br>
+          <div>
+            <button class="circle" (click)="cancel()">Volver</button>
+          </div>
+
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+-------------------------------- -->
+<div class="container space" *ngIf="boat">
+  <div class="row">
+    <div class="col-md-6">
+      <h5>Características Técnicas</h5>
+      <div class="space">
+        <img class="border-button img-fluid" src="{{boat.imgBoat}}" alt="PHOTO" width="600px" height="500px">
+      </div>
+      <div>
+        <small> ¿ Eres el propietario ?.Por favor, pulsa aquí si deseas realizar alguna modificación.</small>
+      </div>
+      <button class="btn btn-warning btn-rounded">Adelante</button>
+    </div>
+    <div class="col-md-6">
+      <div class="boat-details">
+        <h5>Detalles</h5>
+        <div>
+          <span>Capacidad:</span>
+          <i>{{boat.capacity}} personas máx.</i>
+        </div>
+        <div>
+          <span>Año: </span>
+          <i>{{boat.year}}</i>
+        </div>
+        <div>
+          <span>Medidas: </span>
+          <i>Eslora: {{boat.eslora}} m</i>
+          <i>Manga: {{boat.width}} m</i>
+          <i>Calado: {{boat.openwork}} m</i>
+        </div>
+        <div>
+          <span>Ubicación: </span>
+          <i>{{boat.place}}</i>
+        </div>
+        <div>
+          <span>Precio/día: </span>
+          <i>{{boat.price}} € </i>
+        </div>
+      </div>
+      <div class="boat-description">
+        <h5>Descripción</h5>
+        <i>{{boat.description}}</i>
+        <h5>Nombre del barco</h5>
+        <h3>{{boat.name}}</h3>
+      </div>
+
+      <div class="row">
+        <form>
+          <div class="col-sm-6">
+            <h4>Inicio</h4>
+            <input type="date" [(ngModel)]="initialDay" name="initialDay">
+            <div class="space-up" >
+              <h4>Final</h4>
+              <input type="date" [(ngModel)]="endDay" name="endDay">
+              <div class="btn-space">
+                <button type="button" class="btn btn-warning btn-rounded" (click)="getDays(boat.price)">Confirmar fechas</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="space">
+              <h4>Días totales:</h4>
+              <p>{{this.days}} </p>
+            </div>
+            <div>
+              <h4>Precio Total:</h4>
+              <p>{{totalPrice | currency:'EUR':true:'2.2-4'}}</p>
+            </div>
+            <div>
+              <button type="button" class="btn btn-warning btn-rounded" (click)="submitReservation(boat.price)">Confirmar reserva</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <agm-map style="width: 100%" [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="true" [zoomControl]="true"
+        (mapClick)="mapClicked($event)">
+        <agm-marker *ngFor="let m of markers" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable"
+          (dragEnd)="markerDragEnd(m, $event)">
+          <agm-info-window>
+            <strong>{{boat.place}}</strong>
+          </agm-info-window>
+        </agm-marker>
+      </agm-map>
     </div>
   </div>
 </div>

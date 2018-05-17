@@ -30,7 +30,7 @@ export class DetailBoatComponent implements OnInit {
 	markers: Array<any> = [];
 	totalPrice: number = 0;
 	price:  number;
-	days: number;
+	days: number = 0;
 	noVisible: boolean;
 	boatID:string;
 

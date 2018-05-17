@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Homemade+Apple');
+
+h2{
+  font-family: 'Bad Script',
+  cursive;
+  color: purple;
+  font-size: 2.5em;
+}
+p{
+    font-family: 'Bad Script',
+    cursive;
+    font-size: 2em;
+
+}
+
+.card-block {
+  padding: 15px;
+}
+
+.card label {
+  position: absolute;
+  background-color: #f4b241;
+  padding: 5px 10px;
+  top: 166px;
+}
+
+.card .date {
+  font-size: 13px;
+  top: 20px;
+  border-radius: 50%;
+  width: 50px;
+  right: 20px;
+}
+
+.card .price {
+  top: 0px;
+  border-radius: 25px;
+}
+
+.link-color {
+  color: #fff;
+  text-decoration-line: none;
+}
+
+.title {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #347D87;
+}
+
+
+
+
+
+ 

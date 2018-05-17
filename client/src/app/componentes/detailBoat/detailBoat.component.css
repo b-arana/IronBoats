@@ -1,16 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab');
 @import url('https://fonts.googleapis.com/css?family=Bad+Script|Homemade+Apple');
-
-
 body {
   background: #F0F7FF;
   padding-top: 30px;
 }
 
 .text {
- font-family: 'Roboto Slab',
- serif;
-
+  font-family: 'Roboto Slab', serif;
 }
 
 .card-block {
@@ -48,43 +44,58 @@ span {
 }
 
 agm-map {
-  width: 300px;
   height: 300px;
 }
-h4,h5 {
+
+h4,
+h5 {
   font-size: 2em;
-  color:#eba80e;
-  font-family: 'Bad Script',
-  cursive;
-
-
-}
-span, i, p{
-  font-size:1.4em;
+  color: #eba80e;
+  font-family: 'Bad Script', cursive;
 }
 
-.circle{
+span,
+i,
+p {
+  font-size: 1.4em;
+}
+
+.circle {
   border-radius: 50%;
 }
 
-h3{
-   font-size: 1.7em;
-   color: black;
+h3 {
+  font-size: 1.7em;
+  color: black;
+  font-family: 'Bad Script',
+  cursive;
 
 }
 
 .border-button {
-
   outline: solid 5px #eba80e;
   transition: outline 0.6s linear;
   margin: 0.3em;
-  
 }
 
 .border-button:hover {
   outline-width: 7px;
 }
 
+.boat-description {
+  margin-top: 5%;
+  margin-bottom: 7%;
+}
+.btn-space{
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+.space{
+  padding-bottom: 3%;
+}
+.space-up{
+  padding-top: 20px;
+}
 
 
 
