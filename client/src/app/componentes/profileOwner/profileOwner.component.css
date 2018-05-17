@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Homemade+Apple');
+
+
+legend{
+     font-family: 'Bad Script',
+     cursive;
+     font-size: 2em;
+
+}

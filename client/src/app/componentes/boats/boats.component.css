@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Homemade+Apple');
+
 body {
   background: #F0F7FF;
   padding-top: 30px;
@@ -54,6 +56,16 @@ border-radius: 20px;
 
 .space{
   margin-bottom: 5%;
+}
+
+.mine{
+   border: 2px solid #f4b241;
+}
+
+.special {
+  font-family: 'Bad Script', cursive;
+  font-size: 1.5em;
+  padding-right: 3%;
 }
 
 

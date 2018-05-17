@@ -15,10 +15,11 @@ const User = require('../models/User');
 // Create a boat
 
 router.post('/new',[islogginIn, upload.single("file")], (req, res, next) => {
-    // console.log(JSON.stringify(req.body.size));
-    console.log(req.body.width, req.body.eslora, req.body.openwork);
+   
     const owner = req.user._id;
     const imgBoat = req.file.url;
+    console.log(req.user._id);
+   
 
     const {
         name,

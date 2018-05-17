@@ -16,7 +16,6 @@ export class ProfileUserComponent implements OnInit {
   user: any;
   @Input() ownerID;
 
-
   constructor(private sessionService: SessionService, private boatService: BoatsService) { }
 
   ngOnInit() {
@@ -28,14 +27,6 @@ export class ProfileUserComponent implements OnInit {
       })
 
     });
-   
-
-
+  
   }
-
-
-
-
-
-
 }

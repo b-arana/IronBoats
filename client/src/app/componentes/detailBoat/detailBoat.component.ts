@@ -37,6 +37,7 @@ export class DetailBoatComponent implements OnInit {
 	boatOwner:string;
 	currentUser:User;
 	currentUserId:string;
+
 	constructor(
 		private detailBoats: BoatsService,
 		public router: Router,
@@ -99,10 +100,11 @@ export class DetailBoatComponent implements OnInit {
 	 
 	}
 
-
 	cancel() {
 		this.comeBack.back();
 	}
 }
+
+
 
 

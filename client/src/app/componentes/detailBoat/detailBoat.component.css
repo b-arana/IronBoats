@@ -96,6 +96,16 @@ h3 {
 .space-up{
   padding-top: 20px;
 }
+small{
+  font-family: 'Bad Script',
+  cursive;
+
+}
+.link-color {
+  color: #fff;
+  text-decoration-line: none;
+}
+
 
 
 
