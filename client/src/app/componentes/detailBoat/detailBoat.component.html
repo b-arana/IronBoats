@@ -2,18 +2,19 @@
   <div class="row">
     <div class="offset-lg-4 col-8 text" *ngIf="boat">
       <div class="card">
-        <h5>CARACTERISTICAS DEL BARCO</h5>
-        <img src="{{boat.imgBoat}}" alt="PHOTO" width="400px" height="300px">
+        <h5>Características Técnicas</h5>
+        <img class="border-button" src="{{boat.imgBoat}}" alt="PHOTO" width="600px" height="500px">
+
         <div class="card-block">
-          <h4>Owner</h4>
+          <h3>{{boat.name}}</h3>
           <div id="description">
-            <h5>DESCRIPCIÓN</h5>
+            <h5>Descripción</h5>
             <p>{{boat.description}}</p>
           </div>
           <hr>
           <div id="detalles">
 
-            <h5>DETALLES</h5>
+            <h5>Detalles</h5>
             <div>
               <span>Capacidad:</span>
               <i>{{boat.capacity}} personas máx.</i>
@@ -49,19 +50,20 @@
                 </div>
                 <div>
                   <hr>
-                  <button type="button" class="btn btn-warning btn-rounded" (click)="getDays()">Confirmar fechas</button>
+                  <button type="button" class="btn btn-warning btn-rounded" (click)="getDays(boat.price)">Confirmar fechas</button>
+
                 </div>
 
                 <div>
                   <h4>Días totales: {{this.days}} </h4>
                 </div>
                 <div>
-                  <h4>Precio Total: {{this.days * this.boat.price | currency:'EUR':true:'2.2-4'}} </h4>
+                  <h4>Precio Total: {{totalPrice | currency:'EUR':true:'2.2-4'}} </h4>
                 </div>
 
                 <div>
                   <br>
-                  <button type="button" class="btn btn-warning btn-rounded" (click)="submitReservation(this.boat.price)">Confirmar reserva</button>
+                  <button type="button" class="btn btn-warning btn-rounded" (click)="submitReservation(boat.price)">Confirmar reserva</button>
                   <br>
                 </div>
               </form>

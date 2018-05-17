@@ -7,7 +7,7 @@
         <label class="text-light date text-center">{{boat.created_at | date: "dd MMM"}}</label>
         <label class="text-light price text-center">{{boat.price}} € por día</label>
         <div class="card-block">
-          <p class="text-danger">{{boat.place}}</p>
+          <p class="title">{{boat.place}}</p>
           <button type="button" class="btn btn-warning text-light">
             <a class="link-color" [routerLink]="['/home/boat', boat._id]">Ver más</a>
           </button>

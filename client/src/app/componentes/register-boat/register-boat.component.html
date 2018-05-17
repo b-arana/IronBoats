@@ -168,15 +168,16 @@
             <div class="form-group">
               <label class="col-sm-2 control-label" for="textinput">Eslora</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" name="eslora" [(ngModel)]="this.eslora">
+                <input type="number" class="form-control" min="7" max="20" name="eslora" [(ngModel)]="this.eslora">
+
               </div>
               <label class="col-sm-2 control-label" for="textinput">Manga</label>
               <div class="col-sm-4">
-                <input type="number" class="form-control" min="4" max="14" name="manga" [(ngModel)]="this.width">
+                <input type="number" class="form-control" min="2" max="6" name="manga" [(ngModel)]="this.width">
               </div>
               <label class="col-sm-2 control-label" for="textinput">Calado</label>
               <div class="col-sm-4">
-                <input type="number" class="form-control" min="4" max="14" name="calado" [(ngModel)]="this.openwork">
+                <input type="number" class="form-control" min="0.5" max="3" name="calado" [(ngModel)]="this.openwork">
               </div>
             </div>
 
@@ -188,8 +189,6 @@
             <fieldset>
               <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
             </fieldset>
-
-
 
 
             <div class="form-group">

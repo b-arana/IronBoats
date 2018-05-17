@@ -9,7 +9,7 @@ body {
 
 .card label {
   position: absolute;
-  background-color: #ffc107;
+  background-color: #f4b241;
   padding: 5px 10px;
   top: 166px;
 }
@@ -32,3 +32,13 @@ body {
   text-decoration-line: none;
 
 }
+
+.title{
+  font-size: 1.3em;
+  font-weight:700;
+  color:#347D87;
+
+
+}
+
+

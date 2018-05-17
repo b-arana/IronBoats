@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Homemade+Apple');
+
 
 body {
   background: #F0F7FF;
@@ -50,8 +52,11 @@ agm-map {
   height: 300px;
 }
 h4,h5 {
-  font-size: 1.7em;
-  color:#eba80e
+  font-size: 2em;
+  color:#eba80e;
+  font-family: 'Bad Script',
+  cursive;
+
 
 }
 span, i, p{
@@ -61,4 +66,25 @@ span, i, p{
 .circle{
   border-radius: 50%;
 }
+
+h3{
+   font-size: 1.7em;
+   color: black;
+
+}
+
+.border-button {
+
+  outline: solid 5px #eba80e;
+  transition: outline 0.6s linear;
+  margin: 0.3em;
+  
+}
+
+.border-button:hover {
+  outline-width: 7px;
+}
+
+
+
 

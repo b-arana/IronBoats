@@ -62,8 +62,8 @@ export class RegisterBoatComponent implements OnInit {
 		
 	this.uploader.uploadAll();
 
-	 this.uploader.onSuccessItem = (item, response) => {
-		 	this.router.navigateByUrl('/profile/owner');
+	this.uploader.onSuccessItem = (item, response) => {
+		 	this.router.navigateByUrl('/home');
 		}; 
 	}
 

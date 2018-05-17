@@ -18,21 +18,21 @@ import * as moment from 'moment';
 })
 export class DetailBoatComponent implements OnInit {
 	boat: Boats;
-	place: String;
-	user: String;
-	lat: Number = 40.2322103;
-	lng: Number = 2.787272;
-	zoom: Number = 4;
-	reserva: String;
+	place: string;
+	user: string;
+	lat: number = 40.2322103;
+	lng: number = 2.787272;
+	zoom: number = 4;
+	reserva: string;
 	initialDay: Date;
 	endDay: Date;
 	boats: Array<any> = [];
 	markers: Array<any> = [];
-	totalPrice: Number;
-	price: Number;
+	totalPrice: number = 0;
+	price:  number;
 	days: number;
 	noVisible: boolean;
-	boatID:String;
+	boatID:string;
 
 	constructor(
 		private detailBoats: BoatsService,
@@ -58,24 +58,25 @@ export class DetailBoatComponent implements OnInit {
 
 	}
 
-	getDays() {
+	getDays(price) {
 		let dayOne = moment(this.initialDay);
 		let dayTwo = moment(this.endDay);
 		this.days = dayTwo.diff(dayOne, 'days');		
+		this.totalPrice = (this.days * price);
 	}
 
 	submitReservation(boatPrice) {
-
+		console.log(this.days, boatPrice)
 		let initialDay = moment(this.initialDay);
 		let endDay = moment(this.endDay);
-		let totalPrice = this.days * boatPrice;
+		
 		
 		
 		let bookData = {
 			boatID:this.boatID,
 			endDay,
 			initialDay,
-			totalPrice,
+			totalPrice:this.totalPrice
 		}
 		console.log(bookData)
 
