@@ -20,6 +20,7 @@ import { DetailBoatComponent } from './componentes/detailBoat/detailBoat.compone
 import { AgmCoreModule } from '@agm/core';
 import { environment } from '../environments/environment';
 import { ReservationService } from './services/reservation.service';
+import { FilterPipe } from './pipes/pipeBoats.pipe';
 
 
 
@@ -37,9 +38,10 @@ import { ReservationService } from './services/reservation.service';
     ProfileUserComponent,
     FileSelectDirective,
     DetailBoatComponent,
+    FilterPipe
  
   
-    
+  
 ],
   imports: [
     BrowserModule,

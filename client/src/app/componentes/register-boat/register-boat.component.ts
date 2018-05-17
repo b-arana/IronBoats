@@ -43,7 +43,7 @@ export class RegisterBoatComponent implements OnInit {
 		const openwork = this.openwork;
 		const price = this.price;
 
-		console.log(eslora, width, openwork, price);
+
 		
 
 		this.uploader.onBuildItemForm = (item, form) => {
@@ -63,7 +63,7 @@ export class RegisterBoatComponent implements OnInit {
 	this.uploader.uploadAll();
 
 	this.uploader.onSuccessItem = (item, response) => {
-		 	this.router.navigateByUrl('/home');
+		 	this.router.navigateByUrl('/user');
 		}; 
 	}
 

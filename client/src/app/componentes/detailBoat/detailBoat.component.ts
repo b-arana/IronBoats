@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Boats } from '../../interfaces/Boats';
 import { BoatsService } from '../../services/boats.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -33,6 +33,7 @@ export class DetailBoatComponent implements OnInit {
 	days: number = 0;
 	noVisible: boolean;
 	boatID:string;
+	ownerID: string;
 
 	constructor(
 		private detailBoats: BoatsService,
@@ -55,6 +56,9 @@ export class DetailBoatComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.detailBoats.getDetailsBoat(this.boatID).subscribe((boat)=>{
+			this.boat.owner = this.ownerID;
+		})
 
 	}
 

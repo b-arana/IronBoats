@@ -7,24 +7,33 @@ body {
   padding: 15px;
 }
 
+.card {
+  position: relative;
+}
+
 .card label {
   position: absolute;
   background-color: #f4b241;
   padding: 5px 10px;
-  top: 166px;
-}
-
-.card .date {
   font-size: 13px;
+
+}
+.card .type {
+top: 154px;
+left: 20px;
+border-radius: 20px;
+
+}
+.card .date {  
   top: 20px;
   border-radius: 50%;
   width: 50px;
   right: 20px;
 }
 .card .price{
-  top:0px;
+  top:20px;
+  left: 20px;
   border-radius: 25px;
-  
 }
 
 .link-color {
@@ -38,7 +47,13 @@ body {
   font-weight:700;
   color:#347D87;
 
+}
+.border-radius{
+  border-radius: 15px;
+}
 
+.space{
+  margin-bottom: 5%;
 }
 
 
