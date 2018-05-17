@@ -5,7 +5,9 @@
       <div class="space">
         <img class="border-button img-fluid" src="{{boat.imgBoat}}" alt="PHOTO" width="600px" height="500px">
       </div>
-      <div>
+      <div *ngIf="boatOwner==currentUserId">
+
+
         <div>
           <small> ¿ Eres el propietario ?.Por favor, pulsa aquí si deseas realizar alguna modificación.</small>
         </div>

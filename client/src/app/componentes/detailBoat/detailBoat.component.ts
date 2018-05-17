@@ -34,7 +34,9 @@ export class DetailBoatComponent implements OnInit {
 	noVisible: boolean;
 	boatID:string;
 	ownerID: string;
-
+	boatOwner:string;
+	currentUser:User;
+	currentUserId:string;
 	constructor(
 		private detailBoats: BoatsService,
 		public router: Router,
@@ -56,8 +58,13 @@ export class DetailBoatComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.session.isLoggedIn().subscribe(user=>{
+			this.currentUser = user;
+			this.currentUserId=user._id
+		})
 		this.detailBoats.getDetailsBoat(this.boatID).subscribe((boat)=>{
-			this.boat.owner = this.ownerID;
+			console.log(boat)
+			this.boatOwner = boat.owner;
 		})
 
 	}
