@@ -18,7 +18,6 @@ router.post('/new',[islogginIn, upload.single("file")], (req, res, next) => {
    
     const owner = req.user._id;
     const imgBoat = req.file.url;
-    console.log(req.user._id);
    
 
     const {
@@ -56,8 +55,8 @@ router.post('/new',[islogginIn, upload.single("file")], (req, res, next) => {
                 width,
                 eslora,
                 openwork
-
             });
+            console.log(newBoat)
             newBoat.save().then((boat) => {
                 return res.status(200).json(boat);
             })
